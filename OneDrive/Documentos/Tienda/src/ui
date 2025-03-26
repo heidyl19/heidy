@@ -1,0 +1,167 @@
+package ui;
+
+import java.util.Scanner;
+
+
+
+
+
+public class Executable {
+
+    private Scanner input;
+    private  producto[]productos;
+    private int cantidadeproducto;
+    private final int maxi_producto=20;
+
+    public static void main(String[] args) {
+
+        Executable exe = new Executable();
+        exe.menu();
+
+    }
+
+    public Executable() {
+
+        input = new Scanner(System.in);
+
+    }
+   
+
+    public void menu() {
+
+        System.out.println("\nBienvenido a Martech, la tienda online de productos tecnologicos");
+        int option = 0;
+
+        do {
+            System.out.println("\nMENU PRINCIPAL\n");
+            System.out.println("1. Registrar productos");
+            
+            System.out.println("2. Actualizar stock de un producto"); 
+            System.out.println("3. Consultar informacion de un producto");
+            System.out.println("4. Consultar producto con el precio mas alto");
+            System.out.println("5. Calcular el valor total del inventario registrado");
+            System.out.println("0. Salir");
+            option = input.nextInt();
+
+            switch (option) {
+                case 1:
+                    registerProduct();
+                    break;
+                case 2:
+                    updateProductStock();
+                    break;
+                case 3:
+                    showProductInformation();
+                    break;
+                case 4:
+                    showMostExpensiveProduct();
+                    break;
+                case 5:
+                    showTotalInventoryCost();
+                    break;
+                case 0:
+                    System.out.println("Muchas gracias por usar nuestros servicios. Adios :D");
+                    break;
+                default:
+                    System.out.println("Opcion invalida");
+                    break;
+            }
+
+        } while (option != 0);
+
+    }
+
+    public void registerProduct() {
+     producto=new producto();
+
+        if(cantidadeproducto>=maxi_producto){ 
+            System.out.println("no hay mas productos que puedas registrar"),
+            return;
+
+        
+        }
+        producto pr =new producto();
+        System.out.println("di el nombre del producto");
+        pr nombre=input.nextLine();
+
+
+        System.out.println("digita el codigo");
+        pr.codigo=input.nextLine();
+        while(pr.codigo.length()!=5){
+            System.out.println("el codigo debe tener 5 carcteres");
+
+            pr.codigo=input.nextLine();
+        }
+
+
+        System.out.println("el precio unitario");
+        pr.preciounitario=input.nextdouble();
+        while(pr.preciounitario<=0){
+            System.out.println("elprecio que digiste debe ser mayoor a 0");
+            p.preciounitario=input.nextdouble();
+
+
+        }
+        }
+
+
+   
+
+
+    }
+
+    public void updateProductStock() {
+     String msg=("Los productos que quedan son");
+
+     updateProductStock[] types=updateProductStock.values();
+
+     for(int i=0<updateProductStock.length;i++){
+
+     }
+
+
+
+    }
+
+
+    public void showProductInformation() {
+    if (cantidadeproducto==0){
+
+        System.out.println("no hay ningun produxto registrado");
+        return;
+    }
+     System.out.println("ingresa elcodigo");
+     String codigo=input.nextLine();
+
+     for(int i=0;i<cantidadeproducto;i++){
+       if(producto[i].codigo.equalsIgnoreCase(codigo)){
+        System.out.println("informacion del producto");
+        System.out.println("nombre "+ producto[i].nombre);
+         System.out.println("codigo"+producto[i].codigo);
+        
+       }
+
+     }
+    }
+
+    public void showMostExpensiveProduct() {
+        if(cantidadeproducto==0){
+            System.out.println("no hay productos");
+            return;
+        }
+
+    }
+
+    public void showTotalInventoryCost() {
+    if(showTotalInventoryCost==0)
+    System.out.println("no hay productos")
+    return;
+    }
+    double valorTotal=0
+    for(int i=0; i<cantidadeproducto;i++){
+        valorTotal+=producto[i].preciounitario*producto[i].cantidadStock
+
+        System.out.println(total de valor en el inventario);
+    }
+
+}
